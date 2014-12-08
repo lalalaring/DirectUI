@@ -6,7 +6,6 @@
 #endif // _MSC_VER > 1000
 
 #include "UILabel.h"
-
 #include "UIVerticalLayout.h"
 #include "UIHorizontalLayout.h"
 /////////////////////////////////////////////////////////////////////////////////////

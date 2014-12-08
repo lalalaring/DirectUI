@@ -1,5 +1,5 @@
 
-#include "StdAfx.h"
+#include "pch.h"
 
 #ifndef TRACE
    #define TRACE

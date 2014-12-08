@@ -36,9 +36,6 @@
     <ClInclude Include="UILib.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="StdAfx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Internal.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -104,6 +101,12 @@
     </ClInclude>
     <ClInclude Include="UIDlgBuilder.h">
       <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Application\resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

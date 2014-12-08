@@ -16,7 +16,7 @@
 #include <windows.h>
 #include <objbase.h>
 
-#include "..\TypeUI\UIlib.h"
+#include "../TypeUI/UILib.h"
 //#include "..\UIlib\UIlib.h"
 //#pragma comment(lib, "..\\bin\\UIlib.lib")
 

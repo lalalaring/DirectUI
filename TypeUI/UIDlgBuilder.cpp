@@ -1,5 +1,5 @@
 
-#include "StdAfx.h"
+#include "pch.h"
 #include "UIDlgBuilder.h"
 #include "UIDialogLayout.h"
 

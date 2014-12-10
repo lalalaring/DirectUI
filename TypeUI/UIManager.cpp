@@ -65,7 +65,7 @@ typedef struct tagTIMERINFO
 /////////////////////////////////////////////////////////////////////////////////////
 //
 
-CAnimationSpooler m_anim;
+//CAnimationSpooler m_anim;
 HPEN m_hPens[UICOLOR__LAST] = { 0 };
 HFONT m_hFonts[UIFONT__LAST] = { 0 };
 HBRUSH m_hBrushes[UICOLOR__LAST] = { 0 };
@@ -480,28 +480,28 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
 		//
 		// Render screen
 		//
-		if (m_anim.IsAnimating())
-		{
-			// 3D animation in progress
-			m_anim.Render();
-			// Do a minimum paint loop
-			// Keep the client area invalid so we generate lots of
-			// WM_PAINT messages. Cross fingers that Windows doesn't
-			// batch these somehow in the future.
-			PAINTSTRUCT ps = { 0 };
-			::BeginPaint(m_hWndPaint, &ps);
-			::EndPaint(m_hWndPaint, &ps);
-			::InvalidateRect(m_hWndPaint, NULL, FALSE);
-		}
-		else if (m_anim.IsJobScheduled()) {
-			// Animation system needs to be initialized
-			m_anim.Init(m_hWndPaint);
-			// A 3D animation was scheduled; allow the render engine to
-			// capture the window content and repaint some other time
-			if (!m_anim.PrepareAnimation(m_hWndPaint)) m_anim.CancelJobs();
-			::InvalidateRect(m_hWndPaint, NULL, TRUE);
-		}
-		else
+		//if (m_anim.IsAnimating())
+		//{
+		//	// 3D animation in progress
+		//	m_anim.Render();
+		//	// Do a minimum paint loop
+		//	// Keep the client area invalid so we generate lots of
+		//	// WM_PAINT messages. Cross fingers that Windows doesn't
+		//	// batch these somehow in the future.
+		//	PAINTSTRUCT ps = { 0 };
+		//	::BeginPaint(m_hWndPaint, &ps);
+		//	::EndPaint(m_hWndPaint, &ps);
+		//	::InvalidateRect(m_hWndPaint, NULL, FALSE);
+		//}
+		//else if (m_anim.IsJobScheduled()) {
+		//	// Animation system needs to be initialized
+		//	m_anim.Init(m_hWndPaint);
+		//	// A 3D animation was scheduled; allow the render engine to
+		//	// capture the window content and repaint some other time
+		//	if (!m_anim.PrepareAnimation(m_hWndPaint)) m_anim.CancelJobs();
+		//	::InvalidateRect(m_hWndPaint, NULL, TRUE);
+		//}
+		//else
 		{
 			// Standard painting of control-tree - no 3D animation now.
 			// Prepare offscreen bitmap?
@@ -600,7 +600,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
 			event.dwTimestamp = ::GetTickCount();
 			m_pFocus->Event(event);
 		}
-		if (m_anim.IsAnimating()) m_anim.CancelJobs();
+		//if (m_anim.IsAnimating()) m_anim.CancelJobs();
 		m_bResizeNeeded = true;
 	}
 	return true;
@@ -728,7 +728,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
 		event.dwTimestamp = ::GetTickCount();
 		pControl->Event(event);
 		// No need to burden user with 3D animations
-		m_anim.CancelJobs();
+		//m_anim.CancelJobs();
 		// We always capture the mouse
 		::SetCapture(m_hWndPaint);
 	}
@@ -959,7 +959,8 @@ void CPaintManagerUI::ReapObjects(CControlUI* pControl)
 void CPaintManagerUI::MessageLoop()
 {
 	MSG msg = { 0 };
-	while (::GetMessage(&msg, NULL, 0, 0)) {
+	while (::GetMessage(&msg, NULL, 0, 0))
+	{
 		if (!CPaintManagerUI::TranslateMessage(&msg)) {
 			::TranslateMessage(&msg);
 			::DispatchMessage(&msg);
@@ -986,13 +987,13 @@ bool CPaintManagerUI::TranslateMessage(const LPMSG pMsg)
 	return false;
 }
 
-bool CPaintManagerUI::AddAnimJob(const CAnimJobUI& job)
-{
-	CAnimJobUI* pJob = new CAnimJobUI(job);
-	if (pJob == NULL) return false;
-	::InvalidateRect(m_hWndPaint, NULL, FALSE);
-	return m_anim.AddJob(pJob);
-}
+//bool CPaintManagerUI::AddAnimJob(const CAnimJobUI& job)
+//{
+//	CAnimJobUI* pJob = new CAnimJobUI(job);
+//	if (pJob == NULL) return false;
+//	::InvalidateRect(m_hWndPaint, NULL, FALSE);
+//	return m_anim.AddJob(pJob);
+//}
 
 bool CPaintManagerUI::AddPostPaintBlit(const TPostPaintUI& job)
 {

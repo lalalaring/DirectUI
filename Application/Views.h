@@ -13,7 +13,6 @@ public:
    LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 
    virtual void Init();
-   virtual void OnPrepareAnimation();
    virtual void Notify(TNotifyUI& msg);
    virtual LPCTSTR GetDialogResource() const = 0;
 
@@ -26,7 +25,6 @@ class CStartPageWnd : public CStandardPageWnd
 public:
    LPCTSTR GetWindowClassName() const;
    LPCTSTR GetDialogResource() const;
-   void OnPrepareAnimation();
    void Init();
 };
 
@@ -35,7 +33,6 @@ class CConfigurePageWnd : public CStandardPageWnd
 public:
    LPCTSTR GetWindowClassName() const;
    LPCTSTR GetDialogResource() const;
-   void OnPrepareAnimation();
 };
 
 class CRegistersPageWnd : public CStandardPageWnd, public IListCallbackUI
@@ -43,7 +40,7 @@ class CRegistersPageWnd : public CStandardPageWnd, public IListCallbackUI
 public:
    LPCTSTR GetWindowClassName() const;
    LPCTSTR GetDialogResource() const;
-   void OnPrepareAnimation();
+   void Init();
    // IListCallbackUI
    LPCTSTR GetItemText(CControlUI* pControl, int iIndex, int iSubItem);
    int CompareItem(CControlUI* pList, CControlUI* pItem1, CControlUI* pItem2);
@@ -54,7 +51,6 @@ class CReportsPageWnd : public CStandardPageWnd
 public:
    LPCTSTR GetWindowClassName() const;
    LPCTSTR GetDialogResource() const;
-   void OnPrepareAnimation();
 };
 
 class CSystemsPageWnd : public CStandardPageWnd, public IListCallbackUI
@@ -63,7 +59,7 @@ public:
    LPCTSTR GetWindowClassName() const;
    LPCTSTR GetDialogResource() const;
    void Notify(TNotifyUI& msg);
-   void OnPrepareAnimation();
+   void Init();
    void OnExpandItem(CControlUI* pControl);
    // IListCallbackUI
    LPCTSTR GetItemText(CControlUI* pControl, int iIndex, int iSubItem);
@@ -85,7 +81,6 @@ public:
    LPCTSTR GetWindowClassName() const;
    LPCTSTR GetDialogResource() const;
    void Notify(TNotifyUI& msg);
-   void OnPrepareAnimation();
    void Init();
 };
 

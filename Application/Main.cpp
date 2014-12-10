@@ -22,6 +22,7 @@ public:
 		if (uMsg == WM_CREATE) {
 			SetIcon(IDR_MAINFRAME);
 			_CreatePage("page_start");
+
 		}
 		if (uMsg == WM_DESTROY) {
 			::PostQuitMessage(0L);

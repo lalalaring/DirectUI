@@ -323,7 +323,7 @@ public:
 	bool AddMessageFilter(IMessageFilterUI* pFilter);
 	bool RemoveMessageFilter(IMessageFilterUI* pFilter);
 
-	bool AddAnimJob(const CAnimJobUI& job);
+	//bool AddAnimJob(const CAnimJobUI& job);
 	bool AddPostPaintBlit(const TPostPaintUI& job);
 
 	CControlUI* FindControl(POINT pt) const;

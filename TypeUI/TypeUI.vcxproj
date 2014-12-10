@@ -71,7 +71,6 @@
     <ClInclude Include="Internal.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="UIActiveX.h" />
-    <ClInclude Include="UIAnim.h" />
     <ClInclude Include="UIBase.h" />
     <ClInclude Include="UIDialogLayout.h" />
     <ClInclude Include="UIDlgBuilder.h" />
@@ -95,7 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UIActiveX.cpp" />
-    <ClCompile Include="UIAnim.cpp" />
     <ClCompile Include="UIBase.cpp" />
     <ClCompile Include="UIDialogLayout.cpp" />
     <ClCompile Include="UIDlgBuilder.cpp" />

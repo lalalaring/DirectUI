@@ -39,15 +39,6 @@
     <ClInclude Include="Internal.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="UIAnim.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="UITab.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="UIDecoration.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="UIBase.h">
       <Filter>头文件\Core</Filter>
     </ClInclude>
@@ -93,9 +84,6 @@
     <ClInclude Include="UIPanel.h">
       <Filter>头文件\Control</Filter>
     </ClInclude>
-    <ClInclude Include="UITool.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="UIDialogLayout.h">
       <Filter>头文件\Layout</Filter>
     </ClInclude>
@@ -108,20 +96,17 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UITab.h">
+      <Filter>头文件\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="UITool.h">
+      <Filter>头文件\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="UIDecoration.h">
+      <Filter>头文件\Control</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="UIAnim.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="UITab.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="UIDecoration.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="UIRender.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="UIBase.cpp">
       <Filter>源文件\Core</Filter>
     </ClCompile>
@@ -164,14 +149,23 @@
     <ClCompile Include="UIPanel.cpp">
       <Filter>源文件\Control</Filter>
     </ClCompile>
-    <ClCompile Include="UITool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="UIDialogLayout.cpp">
       <Filter>源文件\Layout</Filter>
     </ClCompile>
     <ClCompile Include="UIDlgBuilder.cpp">
       <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UITab.cpp">
+      <Filter>源文件\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UITool.cpp">
+      <Filter>源文件\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UIRender.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIDecoration.cpp">
+      <Filter>源文件\Control</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

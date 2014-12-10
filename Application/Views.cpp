@@ -42,13 +42,9 @@ void CStandardPageWnd::Init()
 {
 }
 
-void CStandardPageWnd::OnPrepareAnimation()
-{
-}
-
 void CStandardPageWnd::Notify(TNotifyUI& msg)
 {
-   if( msg.sType == _T("windowinit") ) OnPrepareAnimation();
+	//if (msg.sType == _T("windowinit")) OnInit();
 }
 
 
@@ -73,7 +69,7 @@ LPCTSTR CStartPageWnd::GetDialogResource() const
             "<NavigatorButton name=\"page_start\" text=\"<i 0> Start\" selected=\"true\" tooltip=\"Vis start siden\" />"
             "<NavigatorButton name=\"page_registers\" text=\"<i 4> Registre\" tooltip=\"Vis forskellige registre\" />"
             "<NavigatorButton name=\"page_systems\" text=\"<i 4> Systemer\" />"
-            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsætning\" />"
+            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsning\" />"
             "<NavigatorButton name=\"page_reports\" text=\"<i 4> Rapporter\" />"
           "</NavigatorPanel>"
         "</VerticalLayout>"
@@ -85,13 +81,13 @@ LPCTSTR CStartPageWnd::GetDialogResource() const
           "<TitleShadow />"
           "<WindowCanvas watermark=\"StartWatermark\" >"
             "<VerticalLayout>"
-              "<TextPanel text=\"<f 8>Vælg startområde?</h>\" />"
+              "<TextPanel text=\"<f 8>Vg startomre?</h>\" />"
               "<FadedLine />"
               "<TileLayout scrollbar=\"true\" >"
-                "<TextPanel name=\"link_registers\" text=\"<i 7 50><a><f 6>&Registre</f></a>\n<h>\n<c #444540>Vælg denne menu for at rette i diverse registre i systemet.\n\nDu kan rette i kunde, vogn og chauffør-reigsteret.\" shortcut=\"R\" />"
-                "<TextPanel name=\"link_systems\" text=\"<i 9 50><a><f 6>&Systemer</f></a>\n<h>\n<c #444540>Gennem denne menu kan du opsætte diverse ting.\" shortcut=\"S\" />"
-                "<TextPanel name=\"link_configure\" text=\"<i 6 50><a><f 6>Opsætning</f></a>\n<h>\n<c #444540>Opsætning giver adgang til konfiguration af de mange kørsels-systemer og regler.\" />"
-                "<TextPanel name=\"link_reports\" text=\"<i 5 50><a><f 6>Rapporter</f></a>\n<h>\n<c #444540>Rapporter giver dig overblik over registre samt hverdagens ture og bestillinger.\n\nGennem statistik og lister kan du hurtigt f?præsenteret historiske data fra systemet.\" />"
+                "<TextPanel name=\"link_registers\" text=\"<i 7 50><a><f 6>&Registre</f></a>\n<h>\n<c #444540>Vg denne menu for at rette i diverse registre i systemet.\n\nDu kan rette i kunde, vogn og chauff-reigsteret.\" shortcut=\"R\" />"
+                "<TextPanel name=\"link_systems\" text=\"<i 9 50><a><f 6>&Systemer</f></a>\n<h>\n<c #444540>Gennem denne menu kan du opste diverse ting.\" shortcut=\"S\" />"
+                "<TextPanel name=\"link_configure\" text=\"<i 6 50><a><f 6>Opsning</f></a>\n<h>\n<c #444540>Opsning giver adgang til konfiguration af de mange ksels-systemer og regler.\" />"
+                "<TextPanel name=\"link_reports\" text=\"<i 5 50><a><f 6>Rapporter</f></a>\n<h>\n<c #444540>Rapporter giver dig overblik over registre samt hverdagens ture og bestillinger.\n\nGennem statistik og lister kan du hurtigt f?prenteret historiske data fra systemet.\" />"
               "</TileLayout>"
             "</VerticalLayout>"
           "</WindowCanvas>"
@@ -100,18 +96,6 @@ LPCTSTR CStartPageWnd::GetDialogResource() const
       "</Dialog>";     
 }
 
-void CStartPageWnd::OnPrepareAnimation()
-{
-   COLORREF clrBack = m_pm.GetThemeColor(UICOLOR_WINDOW_BACKGROUND);
-   RECT rcCtrl = m_pm.FindControl(_T("link_registers"))->GetPos();
-   m_pm.AddAnimJob(CAnimJobUI(UIANIMTYPE_FLAT, 0, 350, clrBack, clrBack, CRect(rcCtrl.left, rcCtrl.top, rcCtrl.left + 50, rcCtrl.top + 50), 40, 0, 4, 255, 0.3f));
-   rcCtrl = m_pm.FindControl(_T("link_systems"))->GetPos();
-   m_pm.AddAnimJob(CAnimJobUI(UIANIMTYPE_FLAT, 200, 350, clrBack, clrBack, CRect(rcCtrl.left, rcCtrl.top, rcCtrl.left + 50, rcCtrl.top + 50), 40, 0, 4, 255, 0.3f));
-   rcCtrl = m_pm.FindControl(_T("link_configure"))->GetPos();
-   m_pm.AddAnimJob(CAnimJobUI(UIANIMTYPE_FLAT, 100, 350, clrBack, clrBack, CRect(rcCtrl.left, rcCtrl.top, rcCtrl.left + 50, rcCtrl.top + 50), 40, 0, 4, 255, 0.3f));
-   rcCtrl = m_pm.FindControl(_T("link_reports"))->GetPos();
-   m_pm.AddAnimJob(CAnimJobUI(UIANIMTYPE_FLAT, 250, 350, clrBack, clrBack, CRect(rcCtrl.left, rcCtrl.top, rcCtrl.left + 50, rcCtrl.top + 50), 40, 0, 4, 255, 0.3f));
-}
 
 void CStartPageWnd::Init()
 {
@@ -139,15 +123,15 @@ LPCTSTR CConfigurePageWnd::GetDialogResource() const
             "<NavigatorButton name=\"page_start\" text=\"<i 0> Start\" tooltip=\"Vis start siden\" />"
             "<NavigatorButton name=\"page_registers\" text=\"<i 4> Registre\" tooltip=\"Vis forskellige registre\" />"
             "<NavigatorButton name=\"page_systems\" text=\"<i 4> Systemer\" />"
-            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsætning\" selected=\"true\" />"
+            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsning\" selected=\"true\" />"
             "<NavigatorButton name=\"page_reports\" text=\"<i 4> Rapporter\" />"
           "</NavigatorPanel>"
         "</VerticalLayout>"
         "<VerticalLayout>"
           "<Toolbar>"
-            "<LabelPanel align=\"right\" text=\"<f 6><c #fffe28>System Opsætning</c></f>\" />"
+            "<LabelPanel align=\"right\" text=\"<f 6><c #fffe28>System Opsning</c></f>\" />"
           "</Toolbar>"
-          "<ToolbarTitlePanel name=\"titlepanel\" text=\"<f 7>System Opsætning</f>\" />"
+          "<ToolbarTitlePanel name=\"titlepanel\" text=\"<f 7>System Opsning</f>\" />"
           "<TitleShadow />"
           "<WindowCanvas>"
             "<VerticalLayout>"
@@ -160,7 +144,7 @@ LPCTSTR CConfigurePageWnd::GetDialogResource() const
                 "</TaskPanel>"
                 "<PaddingPanel width=\"12\" />"
                 "<VerticalLayout>"
-                  "<TextPanel text=\"<f 6><c #2c4378>Opsætningsliste</c></f>\" />"
+                  "<TextPanel text=\"<f 6><c #2c4378>Opsningsliste</c></f>\" />"
                   "<SeparatorLine />"
                   "<TextPanel text=\"<c #414141>Dobbeltklik p?et element i listen for at konfigurere det.</c>\n\" />"
                   "<List header=\"hidden\" >"
@@ -170,7 +154,7 @@ LPCTSTR CConfigurePageWnd::GetDialogResource() const
                      "<ListLabelElement text=\"<i 4> Kunde register\" />"
                      "<ListLabelElement text=\"<i 4> Vognmandsregister\" />"
                      "<ListLabelElement text=\"<i 4> Vogn register\" />"
-                     "<ListLabelElement text=\"<i 4> Chauffør register\" />"
+                     "<ListLabelElement text=\"<i 4> Chauff register\" />"
                      "<TextPanel text=\"<x 16><c #F00000><b>A cool effect</b>\n<h>\" />"
                      "<ListLabelElement text=\"<i 7> RESIZE THIS PAGE (make smaller)\" />"
                   "</List>"
@@ -183,12 +167,6 @@ LPCTSTR CConfigurePageWnd::GetDialogResource() const
       "</Dialog>";
 }
 
-void CConfigurePageWnd::OnPrepareAnimation()
-{
-   COLORREF clrBack = m_pm.GetThemeColor(UICOLOR_TITLE_BACKGROUND);
-   const RECT rcCtrl = m_pm.FindControl(_T("titlepanel"))->GetPos();
-   m_pm.AddAnimJob(CAnimJobUI(UIANIMTYPE_FLAT, 0, 300, clrBack, CLR_INVALID, rcCtrl, 140, 0, 5, 200, 0.1f));
-}
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -226,11 +204,11 @@ LPCTSTR CRegistersPageWnd::GetDialogResource() const
               "<TabFolder width=\"200\" inset=\"8 8\" >"
                 "<TabPage text=\"Generelt\" >"
                   "<DialogLayout scrollbar=\"true\" >"
-                    "<LabelPanel pos=\"0, 0, 150, 24\" text=\"S&øg efter\" />"
+                    "<LabelPanel pos=\"0, 0, 150, 24\" text=\"S& efter\" />"
                     "<SingleLineEdit pos=\"0, 24, 150, 44\" name=\"navn\" />"
                     "<LabelPanel pos=\"0, 48, 150, 68\" text=\"&Type\" />"
                     "<SingleLineEdit pos=\"0, 68, 150, 88\" name=\"type\" />"
-                    "<Button pos=\"100, 98, 150, 118\" name=\"ok\" text=\"Søg\" />"
+                    "<Button pos=\"100, 98, 150, 118\" name=\"ok\" text=\"S\" />"
                   "</DialogLayout>"
                 "</TabPage>"
               "</TabFolder>"
@@ -245,7 +223,7 @@ LPCTSTR CRegistersPageWnd::GetDialogResource() const
     "</Dialog>";
 }
 
-void CRegistersPageWnd::OnPrepareAnimation()
+void CRegistersPageWnd::Init()
 {
    CListUI* pList = static_cast<CListUI*>(m_pm.FindControl(_T("list")));
    pList->SetTextCallback(this);                                          // We want GetItemText for items
@@ -292,7 +270,7 @@ LPCTSTR CSystemsPageWnd::GetDialogResource() const
             "<NavigatorButton name=\"page_start\" text=\"<i 0> Start\" tooltip=\"Vis start siden\" />"
             "<NavigatorButton name=\"page_registers\" text=\"<i 4> Registre\" tooltip=\"Vis forskellige registre\" />"
             "<NavigatorButton name=\"page_systems\" text=\"<i 4> Systemer\" selected=\"true\" />"
-            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsætning\" />"
+            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsning\" />"
             "<NavigatorButton name=\"page_reports\" text=\"<i 4> Rapporter\" />"
           "</NavigatorPanel>"
         "</VerticalLayout>"
@@ -304,9 +282,9 @@ LPCTSTR CSystemsPageWnd::GetDialogResource() const
           "<WindowCanvas>"
             "<VerticalLayout>"
               "<DialogLayout scrollbar=\"true\" >"
-                "<LabelPanel pos=\"0, 0, 80, 24\" text=\"<b>&Søg efter</b>\" stretch=\"group\" />"
+                "<LabelPanel pos=\"0, 0, 80, 24\" text=\"<b>&S efter</b>\" stretch=\"group\" />"
                 "<SingleLineEdit pos=\"80, 2, 220, 22\" name=\"navn\" stretch=\"size_x\" />"
-                "<Button pos=\"224, 2, 265, 22\" text=\"Søg\" name=\"ok\" stretch=\"move_x\" />"
+                "<Button pos=\"224, 2, 265, 22\" text=\"S\" name=\"ok\" stretch=\"move_x\" />"
                 "<LabelPanel pos=\"280, 0, 320, 24\" text=\"<b>&Type</b>\" stretch=\"move_x\" />"
                 "<SingleLineEdit pos=\"320, 2, 480, 22\" name=\"type\" stretch=\"move_x size_x\" />"
                 "<ImagePanel image=\"logo_search\" pos=\"490, 0, 555, 56\" stretch=\"move_x\" />"
@@ -359,7 +337,7 @@ int CSystemsPageWnd::CompareItem(CControlUI* pList, CControlUI* pItem1, CControl
    return 0;
 }
 
-void CSystemsPageWnd::OnPrepareAnimation()
+void CSystemsPageWnd::Init()
 {
    CListUI* pList = static_cast<CListUI*>(m_pm.FindControl(_T("list")));
    pList->SetTextCallback(this);  // List will call our GetItemText()
@@ -401,7 +379,7 @@ LPCTSTR CReportsPageWnd::GetDialogResource() const
             "<NavigatorButton name=\"page_start\" text=\"<i 0> Start\" tooltip=\"Vis start siden\" />"
             "<NavigatorButton name=\"page_registers\" text=\"<i 4> Registre\" tooltip=\"Vis forskellige registre\" />"
             "<NavigatorButton name=\"page_systems\" text=\"<i 4> Systemer\" />"
-            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsætning\" />"
+            "<NavigatorButton name=\"page_configure\" text=\"<i 4> Opsning\" />"
             "<NavigatorButton name=\"page_reports\" text=\"<i 4> Rapporter\" selected=\"true\" />"
           "</NavigatorPanel>"
         "</VerticalLayout>"
@@ -415,7 +393,7 @@ LPCTSTR CReportsPageWnd::GetDialogResource() const
             "<TileLayout>"
                "<TextPanel text=\"<i 0 50><a><f 6>Kunde Rapporter</f></a>\n<h>\n<c #444540>Rapporter for kunde registeret.\" />"
                "<TextPanel text=\"<i 1 50><a><f 6>Vogn Rapporter</f></a>\n<h>\n<c #444540>Rapporter for vogn and vognmands-registeret.\" />"
-               "<TextPanel text=\"<i 2 50><a><f 6>Chauffør Rapporter</f></a>\n<h>\n<c #444540>Rapporter for chauffører registeret.\" />"
+               "<TextPanel text=\"<i 2 50><a><f 6>Chauff Rapporter</f></a>\n<h>\n<c #444540>Rapporter for chauffer registeret.\" />"
                "<TextPanel text=\"<i 3 50><a><f 6>Bestilling Rapporter</f></a>\n<h>\n<c #444540>Rapporter over bestillinger.\" />"
             "</TileLayout>"
           "</WindowCanvas>"
@@ -424,11 +402,7 @@ LPCTSTR CReportsPageWnd::GetDialogResource() const
       "</Dialog>";
 }
 
-void CReportsPageWnd::OnPrepareAnimation()
-{
-   const RECT rcCtrl = m_pm.FindControl(_T("titlepanel"))->GetPos();
-   m_pm.AddAnimJob(CAnimJobUI(UIANIMTYPE_FLAT, 0, 300, CLR_INVALID, CLR_INVALID, rcCtrl, 0, 0, -2, -200, 0.0f));
-}
+
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -461,7 +435,7 @@ LPCTSTR CSearchPageWnd::GetDialogResource() const
 { 
    return "<Dialog caption=\"Search Page\" >"
       "<VerticalLayout>"
-        "<ToolbarTitlePanel text=\"<f 6>Søg efter en vej.</f><p><x 10>Indtast søgekriterier og søg efter vejen.\" />"
+        "<ToolbarTitlePanel text=\"<f 6>S efter en vej.</f><p><x 10>Indtast sekriterier og s efter vejen.\" />"
         "<DialogCanvas>"
           "<VerticalLayout>"
             "<DialogLayout>"
@@ -472,9 +446,9 @@ LPCTSTR CSearchPageWnd::GetDialogResource() const
                  "<ListLabelElement text=\"<i 8> E-mail grupper\" />"
                  "<ListLabelElement text=\"<i 8> Kunde grupper\" />"
               "</DropDown>"
-              "<LabelPanel pos=\"0, 36, 60, 60\" text=\"Søg\" stretch=\"group\" />"
+              "<LabelPanel pos=\"0, 36, 60, 60\" text=\"S\" stretch=\"group\" />"
               "<SingleLineEdit pos=\"60, 38, 250, 58\" name=\"search\" text=\"\" stretch=\"size_x\" />"
-              "<Button pos=\"260, 38, 340, 58\" name=\"ok\" text=\"&Søg\" stretch=\"move_x\" />"
+              "<Button pos=\"260, 38, 340, 58\" name=\"ok\" text=\"&S\" stretch=\"move_x\" />"
               "<SeparatorLine pos=\"0, 68, 340, 78\" stretch=\"group size_x\" />"
               "<LabelPanel pos=\"0, 78, 340, 98\" text=\"Valgbare veje\" />"
               "<PaddingPanel pos=\"0, 98, 340, 100\" />"
@@ -551,25 +525,25 @@ LPCTSTR CEditPageWnd::GetDialogResource() const
                     "<SingleLineEdit pos=\"370, 32, 510, 52\" text=\"+45 87654321\" enabled=\"false\" stretch=\"move_x size_x\" />"
 
                     "<LabelPanel pos=\"0, 60, 110, 84\" text=\"Kontakt\" stretch=\"group\" />"
-                    "<SingleLinePick pos=\"110, 62, 240, 82\" text=\"<i 3><a>Bjarke Viksøe</a>\" stretch=\"size_x\" />"
+                    "<SingleLinePick pos=\"110, 62, 240, 82\" text=\"<i 3><a>Bjarke Viks</a>\" stretch=\"size_x\" />"
                     "<LabelPanel pos=\"260, 60, 370, 84\" text=\"Website\" stretch=\"move_x\" />"
                     "<SingleLineEdit pos=\"370, 62, 510, 82\" text=\"www.viksoe.dk/code\" stretch=\"move_x size_x\" />"
 
                     "<GreyTextHeader pos=\"0, 100, 510, 120\" text=\"Adresse\" stretch=\"group size_x\" />"
 
                     "<LabelPanel pos=\"0, 130, 110, 154\" text=\"Vej\" stretch=\"group\" />"
-                    "<SingleLinePick pos=\"110, 132, 240, 152\" text=\"<a>Nørrebred, Vallensbæk</a>\" stretch=\"size_x\" />"
+                    "<SingleLinePick pos=\"110, 132, 240, 152\" text=\"<a>Nrebred, Vallensb</a>\" stretch=\"size_x\" />"
                     "<LabelPanel pos=\"260, 130, 370, 154\" text=\"Note\" stretch=\"move_x\" />"
-                    "<MultiLineEdit pos=\"370, 132, 510, 192\" text=\"Dette er en meget lang note omkring denne person. Her følger noget mere tekst\" stretch=\"move_x size_x\" />"
+                    "<MultiLineEdit pos=\"370, 132, 510, 192\" text=\"Dette er en meget lang note omkring denne person. Her fger noget mere tekst\" stretch=\"move_x size_x\" />"
 
                     "<LabelPanel pos=\"0, 160, 110, 184\" text=\"Post Nr\" stretch=\"line\" />"
                     "<DropDown pos=\"110, 162, 240, 182\" stretch=\"move_x size_x\">"
                        "<ListLabelElement text=\"2560 Holte\" selected=\"true\" />"
-                       "<ListLabelElement text=\"2625 Vallensbæk\" />"
+                       "<ListLabelElement text=\"2625 Vallensb\" />"
                     "</DropDown>"
 
-                    "<Option pos=\"0, 192, 120, 212\" text=\"Husnr krævet\" selected=\"true\" />"
-                    "<Option pos=\"120, 192, 240, 212\" text=\"Ikke krævet\" />"
+                    "<Option pos=\"0, 192, 120, 212\" text=\"Husnr kret\" selected=\"true\" />"
+                    "<Option pos=\"120, 192, 240, 212\" text=\"Ikke kret\" />"
                   "</DialogLayout>"
                "</TabPage>"
                "<TabPage text=\"Egenskaber\" >"
@@ -595,11 +569,7 @@ LPCTSTR CEditPageWnd::GetDialogResource() const
       "</Dialog>";
 }
    
-void CEditPageWnd::OnPrepareAnimation()
-{
-   const RECT rcCtrl = m_pm.FindControl(_T("warning"))->GetPos();
-   m_pm.AddAnimJob(CAnimJobUI(UIANIMTYPE_FLAT, 0, 300, CLR_INVALID, CLR_INVALID, rcCtrl, 0, 0, -2, -200, 0.0f));
-}
+
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -634,7 +604,7 @@ LPCTSTR CPopupWnd::GetDialogResource() const
         "<ToolbarTitlePanel text=\"<f 6>Er du sikker?</f><p><x 10>Er du sikker p?at du har trykket p?linket?\" />"
         "<DialogCanvas>"
           "<VerticalLayout>"
-            "<TextPanel text=\"Det er ikke altid godt at trykke p?linket. Du kan fortryde dit klik ved at vælge Nej knappen.\" />"
+            "<TextPanel text=\"Det er ikke altid godt at trykke p?linket. Du kan fortryde dit klik ved at vge Nej knappen.\" />"
             "<PaddingPanel />"
             "<DialogLayout>"
               "<PaddingPanel pos=\"0, 0, 340, 4\" />"
